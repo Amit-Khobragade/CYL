@@ -1,7 +1,6 @@
 import {
   UserData,
   NewUserData,
-  isUserData,
   isNewUserData,
   createUser,
 } from "../interfaces";
@@ -45,7 +44,7 @@ const database: UserData[] = [
   },
 ];
 
-export function addUser(newUser: NewUserData): UserData | null {
+export function addUser(newUser: any): UserData | null {
   if (!isNewUserData(newUser)) {
     return null;
   }
@@ -59,17 +58,27 @@ export function getAllUsers(): UserData[] {
   return database;
 }
 
+export function login(email: String, password: String): UserData | undefined {
+  let user = database.find((data) => data.email === email);
+  !!user ? (user.jwt = "placeholder") : null;
+  return user;
+}
+
+export function checkJwt(uid: string, jwt: string): boolean {
+  return true;
+}
+
 export function getUserById(uid: string): UserData | undefined {
   return database.find((value) => value.uid === uid);
 }
 
-export function makeUserStore(uid: string): UserData | undefined {
+export function makeUserStore(uid: string, jwt: string): UserData | undefined {
   let user = getUserById(uid);
   user && (user.isStore = true);
   return user;
 }
 
-export function trustUser(uid: string): UserData | undefined {
+export function trustUser(uid: string, jwt: string): UserData | undefined {
   let user = getUserById(uid);
   user && user.isStore && (user.isTrusted = true);
   return user;
