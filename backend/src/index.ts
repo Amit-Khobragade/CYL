@@ -5,10 +5,11 @@ import schema from "./gqlschemas/users";
 const app = express();
 
 app.use(
-  "/graphql",
+  "/users",
   graphqlHTTP({
     schema: schema,
-    graphiql: true,
+    // ! only for development
+    // graphiql: true,
   })
 );
 
