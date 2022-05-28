@@ -10,6 +10,7 @@ interface BaseUserData {
 
 export interface UserData extends BaseUserData {
   uid: string;
+  jwt?: string;
 }
 
 export interface NewUserData extends BaseUserData {
@@ -32,7 +33,11 @@ function isBaseUserData(data: Object): data is BaseUserData {
 export function isUserData(data: Object): data is UserData {
   if (isBaseUserData(data)) {
     let userData: UserData = data as UserData;
-    return !!userData.uid && validator.isAlphanumeric(userData.uid);
+    return (
+      !!userData.uid &&
+      validator.isAlphanumeric(userData.uid) &&
+      (!userData.jwt || validator.isJWT(userData.jwt))
+    );
   } else {
     return false;
   }
