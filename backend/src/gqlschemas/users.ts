@@ -1,5 +1,10 @@
 import * as data from "../Data/Data";
-import { GraphQLObjectType, GraphQLString, GraphQLBoolean } from "graphql";
+import {
+  GraphQLObjectType,
+  GraphQLString,
+  GraphQLBoolean,
+  GraphQLSchema,
+} from "graphql";
 import { UserData } from "../interfaces";
 
 const UserType = new GraphQLObjectType({
@@ -15,16 +20,20 @@ const UserType = new GraphQLObjectType({
   }),
 });
 
-const RootUser = new GraphQLObjectType({
-  name: "RootUserType",
-  fields: {
-    user: {
-      type: UserType,
-      args: {
-        uid: { type: GraphQLString },
+const schema: GraphQLSchema = new GraphQLSchema({
+  query: new GraphQLObjectType({
+    name: "RootQueryType",
+    fields: {
+      user: {
+        type: UserType,
+        args: {
+          uid: { type: GraphQLString },
+        },
+        resolve: (parent, args): UserData | undefined =>
+          data.getUserById(args.uid),
       },
-      resolve: (parent, args): UserData | undefined =>
-        data.getUserById(args.uid),
     },
-  },
+  }),
 });
+
+export default schema;
