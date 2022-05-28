@@ -3,7 +3,7 @@ import {
   NewUserData,
   isNewUserData,
   createUser,
-} from "../interfaces";
+} from "../interfaces/userInterfaces";
 
 const database: UserData[] = [
   {

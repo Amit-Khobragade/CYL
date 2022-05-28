@@ -6,7 +6,11 @@ import {
   GraphQLSchema,
   GraphQLList,
 } from "graphql";
-import { isNewUserData, isUserData, UserData } from "../interfaces";
+import {
+  isNewUserData,
+  isUserData,
+  UserData,
+} from "../interfaces/userInterfaces";
 
 const UserType = new GraphQLObjectType({
   name: "users",
