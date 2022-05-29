@@ -1,21 +1,17 @@
-import * as data from "../Data/userData";
+import * as data from "../mongoose/userActions"; //"../Data/userData";
 import {
   GraphQLObjectType,
   GraphQLString,
   GraphQLBoolean,
   GraphQLSchema,
   GraphQLList,
+  GraphQLID,
 } from "graphql";
-import {
-  isNewUserData,
-  isUserData,
-  UserData,
-} from "../interfaces/userInterfaces";
 
 const UserType = new GraphQLObjectType({
   name: "users",
   fields: () => ({
-    uid: { type: GraphQLString },
+    _id: { type: GraphQLID },
     email: { type: GraphQLString },
     phoneNumber: { type: GraphQLString },
     displayName: { type: GraphQLString },
@@ -34,8 +30,7 @@ const schema: GraphQLSchema = new GraphQLSchema({
         args: {
           uid: { type: GraphQLString },
         },
-        resolve: (parent, args): UserData | undefined =>
-          data.getUserById(args.uid),
+        resolve: (parent, args) => data.getUserById(args.uid),
       },
       checkJwt: {
         type: GraphQLBoolean,
@@ -48,7 +43,10 @@ const schema: GraphQLSchema = new GraphQLSchema({
       //! DEVELOPER END POINT MUST BE REMOVED BEFORE PRODUCTION
       users: {
         type: new GraphQLList(UserType),
-        resolve: (parent, args): UserData[] => data.getAllUsers(),
+        args: {
+          password: { type: GraphQLString },
+        },
+        resolve: (parent, args) => data.getAllUsers(args.password),
       },
     },
   }),
@@ -62,8 +60,7 @@ const schema: GraphQLSchema = new GraphQLSchema({
           email: { type: GraphQLString },
           password: { type: GraphQLString },
         },
-        resolve: (parent, args): UserData | undefined =>
-          data.login(args.email, args.password),
+        resolve: (parent, args) => data.login(args.email, args.password),
       },
       createUser: {
         type: UserType,
@@ -73,9 +70,7 @@ const schema: GraphQLSchema = new GraphQLSchema({
           displayName: { type: GraphQLString },
           password: { type: GraphQLString },
         },
-        resolve: (parent, args): UserData | null => {
-          return data.addUser(args);
-        },
+        resolve: (parent, args) => data.addUser(args),
       },
       makeStore: {
         type: UserType,
@@ -83,8 +78,7 @@ const schema: GraphQLSchema = new GraphQLSchema({
           uid: { type: GraphQLString },
           jwt: { type: GraphQLString },
         },
-        resolve: (parent, args): UserData | undefined =>
-          data.makeUserStore(args.uid, args.jwt),
+        resolve: (parent, args) => data.makeUserStore(args.uid, args.jwt),
       },
       trustStore: {
         type: UserType,
@@ -92,8 +86,7 @@ const schema: GraphQLSchema = new GraphQLSchema({
           uid: { type: GraphQLString },
           jwt: { type: GraphQLString },
         },
-        resolve: (parent, args): UserData | undefined =>
-          data.trustUser(args.uid, args.jwt),
+        resolve: (parent, args) => data.trustUser(args.uid, args.jwt),
       },
     },
   }),

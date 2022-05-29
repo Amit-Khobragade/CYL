@@ -4,6 +4,7 @@ import {
   isNewUserData,
   createUser,
 } from "../interfaces/userInterfaces";
+import "../mongoose/database";
 
 const database: UserData[] = [
   {

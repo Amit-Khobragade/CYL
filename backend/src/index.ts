@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express from "express";
 import { graphqlHTTP } from "express-graphql";
 import schema from "./gqlschemas/users";
@@ -9,7 +10,7 @@ app.use(
   graphqlHTTP({
     schema: schema,
     // ! only for development
-    // graphiql: true,
+    graphiql: true,
   })
 );
 
