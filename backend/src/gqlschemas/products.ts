@@ -11,7 +11,7 @@ import {
 import { UserType } from "./users";
 import { getUserById } from "../mongoose/actions/userActions";
 
-const productType = new GraphQLObjectType({
+export const productType = new GraphQLObjectType({
   name: "products",
   fields: () => ({
     _id: { type: GraphQLID },

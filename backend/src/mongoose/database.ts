@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { UserSchema, ProductSchema } from "./schemas";
+import { UserSchema, ProductSchema, OrderSchema } from "./schemas";
 
 const userColName = "user";
 
@@ -15,3 +15,4 @@ DB.on("open", () => console.log("Created connection"));
 
 export const userModel = DB.model("users", UserSchema);
 export const productModel = DB.model("products", ProductSchema);
+export const orderModel = DB.model("orders", OrderSchema);

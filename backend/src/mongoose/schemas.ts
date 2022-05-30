@@ -62,14 +62,8 @@ export const UserSchema = new Schema(
       validate: validator.isAlphanumeric,
       required: true,
     },
-    isStore: {
-      type: Boolean,
-      default: false,
-    },
-    isTrusted: {
-      type: Boolean,
-      default: false,
-    },
+    isStore: { type: Boolean, default: false },
+    isTrusted: { type: Boolean, default: false },
   },
   {
     strict: true,
@@ -78,16 +72,8 @@ export const UserSchema = new Schema(
 );
 
 export const ProductSchema = new Schema({
-  uid: {
-    type: Types.ObjectId,
-    validate: isValidObjectId,
-    required: true,
-  },
-  title: {
-    type: String,
-    validate: validator.isAlphanumeric,
-    required: true,
-  },
+  uid: { type: Types.ObjectId, validate: isValidObjectId, required: true },
+  title: { type: String, validate: validator.isAlphanumeric, required: true },
   description: {
     type: String,
     validate: validator.isAlphanumeric,
@@ -113,4 +99,10 @@ export const ProductSchema = new Schema({
       subCategories[category].includes(val);
     },
   },
+});
+
+export const OrderSchema = new Schema({
+  uid: { type: Types.ObjectId, validate: isValidObjectId, required: true },
+  pid: { type: Types.ObjectId, validate: isValidObjectId, required: true },
+  deliveryAddr: { type: String, required: true },
 });
