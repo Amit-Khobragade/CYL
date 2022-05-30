@@ -18,7 +18,7 @@ import {
  *    * is the user trusted(isTrusted)
  *    * jwt : to be implemented
  */
-const UserType = new GraphQLObjectType({
+export const UserType = new GraphQLObjectType({
   name: "users",
   fields: () => ({
     _id: { type: GraphQLID },
@@ -56,13 +56,13 @@ const query = new GraphQLObjectType({
       resolve: (parent, args): Boolean => data.checkJwt(args._id, args.jwt),
     },
     // Todo:  DEVELOPER END POINT MUST BE REMOVED BEFORE PRODUCTION
-    // users: {
-    //   type: new GraphQLList(UserType),
-    //   args: {
-    //     password: { type: GraphQLString },
-    //   },
-    //   resolve: (parent, args) => data.getAllUsers(args.password),
-    // },
+    users: {
+      type: new GraphQLList(UserType),
+      args: {
+        password: { type: GraphQLString },
+      },
+      resolve: (parent, args) => data.getAllUsers(args.password),
+    },
   },
 });
 
