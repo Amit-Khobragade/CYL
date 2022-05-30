@@ -28,17 +28,17 @@ const schema: GraphQLSchema = new GraphQLSchema({
       user: {
         type: UserType,
         args: {
-          uid: { type: GraphQLString },
+          _id: { type: GraphQLID },
         },
-        resolve: (parent, args) => data.getUserById(args.uid),
+        resolve: (parent, args) => data.getUserById(args._id),
       },
       checkJwt: {
         type: GraphQLBoolean,
         args: {
-          uid: { type: GraphQLString },
+          _id: { type: GraphQLString },
           jwt: { type: GraphQLString },
         },
-        resolve: (parent, args): Boolean => data.checkJwt(args.uid, args.jwt),
+        resolve: (parent, args): Boolean => data.checkJwt(args._id, args.jwt),
       },
       //! DEVELOPER END POINT MUST BE REMOVED BEFORE PRODUCTION
       users: {
@@ -75,18 +75,18 @@ const schema: GraphQLSchema = new GraphQLSchema({
       makeStore: {
         type: UserType,
         args: {
-          uid: { type: GraphQLString },
+          _id: { type: GraphQLString },
           jwt: { type: GraphQLString },
         },
-        resolve: (parent, args) => data.makeUserStore(args.uid, args.jwt),
+        resolve: (parent, args) => data.makeUserStore(args._id, args.jwt),
       },
       trustStore: {
         type: UserType,
         args: {
-          uid: { type: GraphQLString },
+          _id: { type: GraphQLString },
           jwt: { type: GraphQLString },
         },
-        resolve: (parent, args) => data.trustUser(args.uid, args.jwt),
+        resolve: (parent, args) => data.trustUser(args._id, args.jwt),
       },
     },
   }),
