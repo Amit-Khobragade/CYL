@@ -1,16 +1,16 @@
 import "dotenv/config";
 import express from "express";
 import { graphqlHTTP } from "express-graphql";
-import schema from "./gqlschemas/users";
+import userSchema from "./gqlschemas/users";
 
 const app = express();
 
 app.use(
   "/users",
   graphqlHTTP({
-    schema: schema,
+    schema: userSchema,
     // ! only for development
-    graphiql: true,
+    // graphiql: true,
   })
 );
 

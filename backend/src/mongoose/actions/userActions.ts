@@ -1,4 +1,4 @@
-import { userModel } from "./database";
+import { userModel } from "../database";
 import mongoose from "mongoose";
 import validator from "validator";
 
