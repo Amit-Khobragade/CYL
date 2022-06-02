@@ -1,3 +1,4 @@
 src/auth/auth-key.json
 node_modules/
 .env
+outdir/

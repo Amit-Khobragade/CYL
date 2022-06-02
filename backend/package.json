@@ -5,7 +5,9 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "run": "ts-node-dev --respawn src/index.ts"
+    "run": "ts-node-dev --respawn src/index.ts",
+    "build": "tsc",
+    "start:prod": "node ./outdir/index.js"
   },
   "author": "trp",
   "license": "ISC",
