@@ -32,7 +32,6 @@ export async function getOrderById(_id: any) {
 
 export async function getUserOrders(uid: string) {
   if (mongoose.isValidObjectId(uid)) {
-    console.log(uid);
     return await orderModel
       .find({ uid: new mongoose.Types.ObjectId(uid) })
       .exec();

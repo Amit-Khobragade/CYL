@@ -3,6 +3,7 @@ import {
   GraphQLString,
   GraphQLID,
   GraphQLSchema,
+  GraphQLList,
 } from "graphql";
 import * as data from "../mongoose/actions/orderActions";
 import { getProductById } from "../mongoose/actions/productActions";
@@ -43,14 +44,14 @@ const query = new GraphQLObjectType({
       resolve: (parent, args) => data.getOrderById(args._id),
     },
     userOrders: {
-      type: OrderType,
+      type: new GraphQLList(OrderType),
       args: {
         uid: { type: GraphQLID },
       },
       resolve: (parent, args) => data.getUserOrders(args.uid),
     },
     productOrders: {
-      type: OrderType,
+      type: new GraphQLList(OrderType),
       args: {
         pid: { type: GraphQLID },
       },
