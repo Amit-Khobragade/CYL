@@ -27,4 +27,12 @@ class SizeVariables {
   static const double imagePad = 20;
   static const double bottomControlsPosB = 50;
   static const double bottomControlsPosL = 0;
+  static const double chevronPosT = 0;
+  static const double chevronPosL = 10;
+
+//  ! Filters
+  static const double filterPopupWidth = 360;
+  static const double filterPopupHeight = 500;
+  static const double filterPosT = 100;
+  static const double filterPosR = 0;
 }
