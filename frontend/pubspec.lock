@@ -23,19 +23,19 @@ packages:
     source: hosted
     version: "0.9.8+1"
   camera_android:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: camera_android
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.9.8+1"
+    version: "0.9.7+1"
   camera_avfoundation:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: camera_avfoundation
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.9.8+1"
+    version: "0.9.7+1"
   camera_platform_interface:
     dependency: transitive
     description:
