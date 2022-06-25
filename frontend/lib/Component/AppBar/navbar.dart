@@ -3,6 +3,8 @@ import 'package:CYL/App/Variables/ColorVariables.dart';
 import 'package:CYL/App/Variables/Size.dart';
 import 'package:flutter/material.dart';
 
+import '../BottomMenuBar/BottomMenuBar.dart';
+
 class NavBar extends StatefulWidget {
   const NavBar({Key? key}) : super(key: key);
 
@@ -22,7 +24,13 @@ class _NavBarState extends State<NavBar> {
         children: [
           GestureDetector(
             child: Image.asset('assets/images/menu.png', width: SizeVariables.iconSmall),
-            onTap: () => print('menu'),
+            onTap: () => showModalBottomSheet(
+              context: context,
+              backgroundColor: Colors.transparent,
+              builder: (context) {
+                return const BottomBar();
+              },
+            ),
           ),
           const Text(
             'CYL',

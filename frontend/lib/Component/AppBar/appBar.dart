@@ -18,6 +18,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
     return SliverAppBar(
       floating: true,
       pinned: true,
+      automaticallyImplyLeading: false,
       title: Column(
         children: const [NavBar(), WidgetVariables.verticalSpacingSmall, CustomSearchBox()],
       ),
