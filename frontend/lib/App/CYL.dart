@@ -1,3 +1,4 @@
+import 'package:CYL/App/CartPage.dart';
 import 'package:CYL/App/Images.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +25,7 @@ class _CYL extends State<CYL> {
               cameraDescription: widget.cameraDescription,
             ),
         ImagesPage.routes: (_) => const ImagesPage(),
+        CartPage.routes: (_) => const CartPage(),
       },
     ));
   }
