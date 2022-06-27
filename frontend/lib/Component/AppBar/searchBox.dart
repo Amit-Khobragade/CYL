@@ -1,3 +1,4 @@
+import 'package:CYL/App/SearchPage.dart';
 import 'package:CYL/App/Variables/ColorVariables.dart';
 import 'package:CYL/App/Variables/Size.dart';
 import 'package:CYL/App/Variables/WidgetVariables.dart';
@@ -23,6 +24,7 @@ class _CustomSearchBoxState extends State<CustomSearchBox> {
           prefixInsets: WidgetVariables.searchBoxEdgeInsets,
           style: WidgetVariables.primaryTextStyle,
           placeholder: 'Search CYL',
+          onSubmitted: (val) => Navigator.pushNamed(context, SearchPage.routes, arguments: SearchQuery(keywords: val)),
         ),
       ),
     );

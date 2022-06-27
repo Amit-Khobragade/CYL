@@ -1,3 +1,4 @@
+import 'package:CYL/App/SearchPage.dart';
 import 'package:CYL/App/Variables/ColorVariables.dart';
 import 'package:CYL/App/Variables/WidgetVariables.dart';
 import 'package:CYL/Component/StyledButton/StyledButton.dart';
@@ -27,23 +28,58 @@ class Categories extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              StyledBtn(eventListener: () => print('hello'), text: 'Lipstick'),
+              StyledBtn(
+                eventListener: () => Navigator.pushNamed(
+                  context,
+                  SearchPage.routes,
+                  arguments: SearchQuery(keywords: 'lipstick'),
+                ),
+                text: 'Lipstick',
+              ),
               const SizedBox(
                 width: 30,
               ),
-              StyledBtn(eventListener: () => print('hello'), text: 'Face Masks'),
+              StyledBtn(
+                eventListener: () => Navigator.pushNamed(
+                  context,
+                  SearchPage.routes,
+                  arguments: SearchQuery(keywords: 'face mask'),
+                ),
+                text: 'Face Masks',
+              ),
               const SizedBox(
                 width: 30,
               ),
-              StyledBtn(eventListener: () => print('hello'), text: 'Hair Products'),
+              StyledBtn(
+                eventListener: () => Navigator.pushNamed(
+                  context,
+                  SearchPage.routes,
+                  arguments: SearchQuery(keywords: 'hair products'),
+                ),
+                text: 'Hair Products',
+              ),
               const SizedBox(
                 width: 30,
               ),
-              StyledBtn(eventListener: () => print('hello'), text: 'Eyelashes'),
+              StyledBtn(
+                eventListener: () => Navigator.pushNamed(
+                  context,
+                  SearchPage.routes,
+                  arguments: SearchQuery(keywords: 'eyelashes'),
+                ),
+                text: 'Eyelashes',
+              ),
               const SizedBox(
                 width: 30,
               ),
-              StyledBtn(eventListener: () => print('hello'), text: 'Foundations'),
+              StyledBtn(
+                eventListener: () => Navigator.pushNamed(
+                  context,
+                  SearchPage.routes,
+                  arguments: SearchQuery(keywords: 'foundations'),
+                ),
+                text: 'Foundations',
+              ),
             ],
           ),
         ),

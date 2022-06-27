@@ -1,6 +1,7 @@
 import 'package:CYL/App/CartPage.dart';
 import 'package:CYL/App/Variables/ColorVariables.dart';
 import 'package:CYL/App/Variables/WidgetVariables.dart';
+import 'package:CYL/App/WishList.dart';
 import 'package:flutter/material.dart';
 
 class BottomBar extends StatelessWidget {
@@ -26,8 +27,8 @@ class BottomBar extends StatelessWidget {
             routes: '/',
           ),
           BottomBarMenuItems(
-            title: 'About Us',
-            routes: '/',
+            title: 'WishList',
+            routes: WishlistPage.routes,
           ),
           BottomBarMenuItems(
             title: 'Cart',

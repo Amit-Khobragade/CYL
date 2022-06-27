@@ -1,5 +1,7 @@
 import 'package:CYL/App/CartPage.dart';
 import 'package:CYL/App/Images.dart';
+import 'package:CYL/App/SearchPage.dart';
+import 'package:CYL/App/WishList.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import './Camera.dart';
@@ -26,6 +28,8 @@ class _CYL extends State<CYL> {
             ),
         ImagesPage.routes: (_) => const ImagesPage(),
         CartPage.routes: (_) => const CartPage(),
+        WishlistPage.routes: (_) => const WishlistPage(),
+        SearchPage.routes: (_) => const SearchPage(),
       },
     ));
   }

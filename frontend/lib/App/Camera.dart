@@ -34,6 +34,7 @@ class _CameraPageState extends State<CameraPage> {
       backgroundColor: Colors.black,
       body: SafeArea(
         child: Stack(
+          fit: StackFit.expand,
           children: [
             camera,
             Positioned(
