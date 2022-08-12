@@ -1,4 +1,4 @@
-name: CYL
+name: cyl
 description: Choose Your Look
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -14,6 +14,7 @@ dependencies:
   cupertino_icons: ^1.0.5
   camera: ^0.9.8+1
   carousel_slider: ^4.1.1
+  graphql_flutter: ^5.1.0
 
 dev_dependencies:
   flutter_test:

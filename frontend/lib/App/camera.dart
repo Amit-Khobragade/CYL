@@ -1,11 +1,12 @@
-import 'package:CYL/App/Images.dart';
-import 'package:CYL/App/Variables/ColorVariables.dart';
-import 'package:CYL/Component/CameraComponents/AddFilters.dart';
+import 'package:cyl/App/images.dart';
+import 'package:cyl/App/Variables/color_variables.dart';
+import 'package:cyl/Component/CameraComponents/add_filters.dart';
 import 'package:camera/camera.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:CYL/Component/CameraComponents/CameraBtn.dart';
-import 'package:CYL/Component/CameraComponents/ImagesBtn.dart';
-import 'package:CYL/App/Variables/Size.dart';
+import 'package:cyl/Component/CameraComponents/camera_btn.dart';
+import 'package:cyl/Component/CameraComponents/images_btn.dart';
+import 'package:cyl/App/Variables/size.dart';
 
 class CameraPage extends StatefulWidget {
   static const routes = '/camera';
@@ -19,7 +20,7 @@ class CameraPage extends StatefulWidget {
 class _CameraPageState extends State<CameraPage> {
   CameraController? cameraController;
   List<CameraDescription>? cameras;
-  List<XFile> images = <XFile>[];
+  Map<XFile, dynamic> images = <XFile, dynamic>{};
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +53,9 @@ class _CameraPageState extends State<CameraPage> {
                         arguments: ImagePageArgs(files: images),
                       ),
                     ),
-                    ClickBtn(onPressed: () async => images.add(await cameraController!.takePicture())),
+                    ClickBtn(
+                      onPressed: () async => images.addAll({await cameraController!.takePicture(): Map.from(filters)}),
+                    )
                   ],
                 ),
               ),
@@ -92,7 +95,9 @@ class _CameraPageState extends State<CameraPage> {
         }
         setState(() {});
       }).catchError((e) {
-        print('Camera Issues');
+        if (kDebugMode) {
+          print('Camera Issues');
+        }
       });
     })();
   }

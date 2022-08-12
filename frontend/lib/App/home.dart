@@ -1,11 +1,11 @@
-import 'package:CYL/Component/Footer/Footer.dart';
+import 'package:cyl/Component/Footer/footer.dart';
 import 'package:flutter/material.dart';
-import 'package:CYL/App/Variables/ColorVariables.dart';
-import 'package:CYL/Component/HomeComponents/BrandDeals/BrandDeals.dart';
-import 'package:CYL/Component/HomeComponents/Categories/Categories.dart';
-import 'package:CYL/Component/HomeComponents/DiscountSection/Discounts.dart';
-import 'package:CYL/Component/SaleInfo/SaleInfo.dart';
-import 'package:CYL/Component/AppBar/appBar.dart';
+import 'package:cyl/App/Variables/color_variables.dart';
+import 'package:cyl/Component/HomeComponents/BrandDeals/brand_deals.dart';
+import 'package:cyl/Component/HomeComponents/Categories/categories.dart';
+import 'package:cyl/Component/HomeComponents/DiscountSection/discounts.dart';
+import 'package:cyl/Component/SaleInfo/sale_info.dart';
+import 'package:cyl/Component/app_bar/app_bar.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -27,7 +27,7 @@ class _Home extends State<Home> {
           scrollDirection: Axis.vertical,
           slivers: [
             const CustomAppBar(),
-            const Categories(),
+            const CategoriesTile(),
             const SaleInfo(),
             const Discounts(),
             const BrandDeals(),

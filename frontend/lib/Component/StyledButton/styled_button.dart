@@ -1,6 +1,6 @@
-import 'package:CYL/App/Variables/WidgetVariables.dart';
+import 'package:cyl/App/Variables/widget_variables.dart';
 import 'package:flutter/material.dart';
-import 'package:CYL/App/Variables/ColorVariables.dart';
+import 'package:cyl/App/Variables/color_variables.dart';
 
 class StyledBtn extends StatefulWidget {
   final void Function() eventListener;

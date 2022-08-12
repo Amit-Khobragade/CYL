@@ -1,6 +1,6 @@
-import 'package:CYL/App/Variables/ColorVariables.dart';
-import 'package:CYL/App/Variables/Size.dart';
-import 'package:CYL/App/Variables/WidgetVariables.dart';
+import 'package:cyl/App/Variables/color_variables.dart';
+import 'package:cyl/App/Variables/size.dart';
+import 'package:cyl/App/Variables/widget_variables.dart';
 import 'package:flutter/material.dart';
 
 class CustomFooter extends StatelessWidget {
@@ -47,7 +47,7 @@ class CustomFooter extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Icon(Icons.copyright, color: ColorVariables.color60Per),
-                textGen('Copyrights reserved to CYL'),
+                textGen('Copyrights reserved to cyl'),
               ],
             )
           ],

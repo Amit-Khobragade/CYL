@@ -1,7 +1,7 @@
-import 'package:CYL/App/SearchPage.dart';
-import 'package:CYL/App/Variables/ColorVariables.dart';
-import 'package:CYL/App/Variables/Size.dart';
-import 'package:CYL/App/Variables/WidgetVariables.dart';
+import 'package:cyl/App/search_page.dart';
+import 'package:cyl/App/Variables/color_variables.dart';
+import 'package:cyl/App/Variables/size.dart';
+import 'package:cyl/App/Variables/widget_variables.dart';
 import 'package:flutter/cupertino.dart';
 
 class CustomSearchBox extends StatefulWidget {
@@ -23,7 +23,7 @@ class _CustomSearchBoxState extends State<CustomSearchBox> {
           backgroundColor: ColorVariables.color60Per,
           prefixInsets: WidgetVariables.searchBoxEdgeInsets,
           style: WidgetVariables.primaryTextStyle,
-          placeholder: 'Search CYL',
+          placeholder: 'Search cyl',
           onSubmitted: (val) => Navigator.pushNamed(context, SearchPage.routes, arguments: SearchQuery(keywords: val)),
         ),
       ),

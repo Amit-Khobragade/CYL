@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 
 class ImageSlider extends StatelessWidget {
   final List<XFile> files;
-  const ImageSlider({Key? key, required this.files}) : super(key: key);
+  final void Function(int index) onChanged;
+  const ImageSlider({Key? key, required this.files, required this.onChanged}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +21,7 @@ class ImageSlider extends StatelessWidget {
           height: 600,
           scrollPhysics: const BouncingScrollPhysics(),
           enlargeCenterPage: true,
+          onPageChanged: (index, reason) => onChanged(index),
         ),
       ),
     );

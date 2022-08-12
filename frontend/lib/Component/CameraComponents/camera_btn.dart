@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:CYL/App/Variables/Size.dart';
+import 'package:cyl/App/Variables/size.dart';
 
 class ClickBtn extends StatelessWidget {
   final void Function() onPressed;

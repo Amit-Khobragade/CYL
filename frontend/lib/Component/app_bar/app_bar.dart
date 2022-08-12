@@ -1,8 +1,8 @@
-import 'package:CYL/App/Variables/WidgetVariables.dart';
-import 'package:CYL/App/Variables/ColorVariables.dart';
+import 'package:cyl/App/Variables/widget_variables.dart';
+import 'package:cyl/App/Variables/color_variables.dart';
 import 'package:flutter/material.dart';
 import './navbar.dart';
-import './searchBox.dart';
+import './search_box.dart';
 
 class CustomAppBar extends StatefulWidget {
   const CustomAppBar({Key? key}) : super(key: key);

@@ -28,70 +28,72 @@ export const productType = new GraphQLObjectType({
   }),
 });
 
-const query = new GraphQLObjectType({
-  name: "RootProductQueryType",
-  fields: {
-    products: {
-      type: new GraphQLList(productType),
-      args: { uid: { type: GraphQLID } },
-      resolve: (parent, args) => data.getProductByUid(args.uid),
-    },
-    product: {
-      type: productType,
-      args: { _id: { type: GraphQLID } },
-      resolve: (parent, args) => data.getProductById(args._id),
-    },
-    categories: {
-      type: new GraphQLList(GraphQLString),
-      resolve: (parent, args) => data.getCategories(),
-    },
-    subCategories: {
-      type: new GraphQLList(GraphQLString),
-      args: { category: { type: GraphQLString } },
-      resolve: (parent, args) => data.getSubCategories(args.category),
-    },
-    productsByCategory: {
-      type: new GraphQLList(productType),
-      args: { category: { type: GraphQLString } },
-      resolve: (parent, args) => data.getProdsByCtg(args.category),
-    },
-    productsBySubCategory: {
-      type: new GraphQLList(productType),
-      args: {
-        category: { type: GraphQLString },
-        subCategory: { type: GraphQLString },
-      },
-      resolve: (parent, args) =>
-        data.getProdsBySubCtg(args.category, args.subCategory),
-    },
+const query = {
+  products: {
+    type: new GraphQLList(productType),
+    args: { uid: { type: GraphQLID } },
+    resolve: (parent: any, args: any) => data.getProductByUid(args.uid),
   },
-});
-
-const mutation = new GraphQLObjectType({
-  name: "ProductsRootMutations",
-  fields: {
-    addProduct: {
-      type: productType,
-      args: {
-        uid: { type: GraphQLID },
-        title: { type: GraphQLString },
-        description: { type: GraphQLString },
-        url: { type: new GraphQLList(GraphQLString) },
-        category: { type: GraphQLString },
-        subCategory: { type: GraphQLString },
-      },
-      resolve: (parent, args) => data.addProducts(args),
-    },
-    removeProduct: {
-      type: productType,
-      args: {
-        _id: { type: GraphQLID },
-        password: { type: GraphQLString },
-      },
-      resolve: (parent, args) => data.removeProduct(args._id, args.password),
-    },
+  product: {
+    type: productType,
+    args: { _id: { type: GraphQLID } },
+    resolve: (parent: any, args: any) => data.getProductById(args._id),
   },
-});
+  categories: {
+    type: new GraphQLList(GraphQLString),
+    resolve: (parent: any, args: any) => data.getCategories(),
+  },
+  subCategories: {
+    type: new GraphQLList(GraphQLString),
+    args: { category: { type: GraphQLString } },
+    resolve: (parent: any, args: any) => data.getSubCategories(args.category),
+  },
+  productsByCategory: {
+    type: new GraphQLList(productType),
+    args: { category: { type: GraphQLString } },
+    resolve: (parent: any, args: any) => data.getProdsByCtg(args.category),
+  },
+  productsBySubCategory: {
+    type: new GraphQLList(productType),
+    args: {
+      category: { type: GraphQLString },
+      subCategory: { type: GraphQLString },
+    },
+    resolve: (parent: any, args: any) =>
+      data.getProdsBySubCtg(args.category, args.subCategory),
+  },
+  search: {
+    type: new GraphQLList(productType),
+    args: { search: { type: GraphQLString } },
+    resolve: (parent: any, args: any) => data.getProductsBySearch(args.search),
+  },
+};
 
-const productSchema: GraphQLSchema = new GraphQLSchema({ query, mutation });
-export default productSchema;
+const mutation = {
+  addProduct: {
+    type: productType,
+    args: {
+      uid: { type: GraphQLID },
+      title: { type: GraphQLString },
+      description: { type: GraphQLString },
+      url: { type: new GraphQLList(GraphQLString) },
+      category: { type: GraphQLString },
+      subCategory: { type: GraphQLString },
+    },
+    resolve: (parent: any, args: any) => data.addProducts(args),
+  },
+  removeProduct: {
+    type: productType,
+    args: {
+      _id: { type: GraphQLID },
+      password: { type: GraphQLString },
+    },
+    resolve: (parent: any, args: any) =>
+      data.removeProduct(args._id, args.password),
+  },
+};
+
+// const productSchema: GraphQLSchema = new GraphQLSchema({ query, mutation });
+const product = { query, mutation };
+// export default productSchema;
+export default product;

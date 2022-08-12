@@ -1,7 +1,7 @@
-import 'package:CYL/App/CartPage.dart';
-import 'package:CYL/App/Variables/ColorVariables.dart';
-import 'package:CYL/App/Variables/WidgetVariables.dart';
-import 'package:CYL/App/WishList.dart';
+import 'package:cyl/App/cart_page.dart';
+import 'package:cyl/App/Variables/color_variables.dart';
+import 'package:cyl/App/Variables/widget_variables.dart';
+import 'package:cyl/App/wish_list.dart';
 import 'package:flutter/material.dart';
 
 class BottomBar extends StatelessWidget {

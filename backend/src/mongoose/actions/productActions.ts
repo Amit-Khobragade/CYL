@@ -2,6 +2,7 @@ import { productModel } from "../database";
 import { getUserById } from "./userActions";
 import mongoose from "mongoose";
 import { categories, subCategories } from "../schemas";
+import validator from "validator";
 
 export const getCategories = () => categories;
 
@@ -52,4 +53,18 @@ export async function getProdsBySubCtg(cat: string, subc: string) {
   }
   const prod = products.filter((val: any) => val.subCategory === subc);
   return prod;
+}
+
+export async function getProductsBySearch(searchKey: string) {
+  if (validator.isAlphanumeric(searchKey)) {
+    let data = await productModel.find({
+      title: { $regex: `${searchKey}`, $options: "i" },
+    });
+    data.push(
+      ...(await productModel.find({
+        description: { $regex: `${searchKey}`, $options: "i" },
+      }))
+    );
+    return data;
+  }
 }

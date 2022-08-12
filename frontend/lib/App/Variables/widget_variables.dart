@@ -1,6 +1,6 @@
-import 'package:CYL/App/Variables/ColorVariables.dart';
+import 'package:cyl/App/Variables/color_variables.dart';
 import 'package:flutter/material.dart';
-import './Size.dart';
+import './size.dart';
 
 class WidgetVariables {
   static const horizontalSpacingSmall = SizedBox(width: 20);
@@ -8,6 +8,8 @@ class WidgetVariables {
   static const borderRadiusSmall = BorderRadius.all(Radius.circular(4));
   static const borderRadiusPrimary = BorderRadius.all(Radius.circular(17));
   static const smallPadding = EdgeInsets.all(SizeVariables.pad);
+  static const medPadding = EdgeInsets.all(SizeVariables.padMed);
+  static const medPaddingHorizontal = EdgeInsets.symmetric(horizontal: SizeVariables.padMed);
   static final boxBorderSmall = Border.all(color: Colors.black, width: 5, style: BorderStyle.solid);
   static const primaryTextStyle = TextStyle(fontSize: 24, color: ColorVariables.secondaryTextColor);
   static const headerTextStyle = TextStyle(fontSize: 30, color: ColorVariables.secondaryTextColor);

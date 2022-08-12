@@ -1,4 +1,4 @@
-import 'package:CYL/App/Variables/Size.dart';
+import 'package:cyl/App/Variables/size.dart';
 import 'package:flutter/material.dart';
 
 class ImagesBtn extends StatelessWidget {

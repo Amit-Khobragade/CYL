@@ -12,7 +12,7 @@ app.use(
   graphqlHTTP({
     schema: userSchema,
     // ! only for development
-    // graphiql: true,
+    graphiql: true,
   })
 );
 
@@ -21,7 +21,7 @@ app.use(
   graphqlHTTP({
     schema: productSchema,
     // ! only for development
-    // graphiql: true,
+    graphiql: true,
   })
 );
 

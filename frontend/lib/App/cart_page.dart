@@ -1,9 +1,9 @@
-import 'package:CYL/App/Variables/ColorVariables.dart';
-import 'package:CYL/App/Variables/Size.dart';
-import 'package:CYL/App/Variables/WidgetVariables.dart';
-import 'package:CYL/Component/AppBar/appBar.dart';
-import 'package:CYL/Component/Card/Card.dart';
-import 'package:CYL/Component/Footer/Footer.dart';
+import 'package:cyl/App/Variables/color_variables.dart';
+import 'package:cyl/App/Variables/size.dart';
+import 'package:cyl/App/Variables/widget_variables.dart';
+import 'package:cyl/Component/app_bar/app_bar.dart';
+import 'package:cyl/Component/Card/card.dart';
+import 'package:cyl/Component/Footer/footer.dart';
 import 'package:flutter/material.dart';
 
 class CartPage extends StatefulWidget {
@@ -29,17 +29,17 @@ class _CartPageState extends State<CartPage> {
       body: SafeArea(
         child: CustomScrollView(
           controller: scrollController!,
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           slivers: [
-            CustomAppBar(),
+            const CustomAppBar(),
             SliverToBoxAdapter(
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.start,
                 mainAxisSize: MainAxisSize.max,
-                children: [
+                children: const [
                   WidgetVariables.horizontalSpacingSmall,
-                  Image.asset('assets/images/cart-icon.png', width: SizeVariables.iconMed),
-                  const Text(
+                  Icon(Icons.shopping_cart, size: SizeVariables.iconSmall1, color: ColorVariables.secondaryTextColor),
+                  Text(
                     'Your Cart',
                     style: WidgetVariables.headerTextStyle,
                   ),

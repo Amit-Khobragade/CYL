@@ -3,6 +3,8 @@ class SizeVariables {
   static const double navBarHeight = 32;
   static const double navBarPadding = 8.0;
   static const double pad = 8;
+  static const double padMed = 16;
+
   static const double boxRadiusSmall = 4;
   static const double smallSquareCard = 160;
   static const double headingSizeMedium = 32;

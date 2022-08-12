@@ -1,23 +1,20 @@
-import 'package:CYL/App/Variables/ColorVariables.dart';
-import 'package:CYL/App/Variables/Size.dart';
-import 'package:CYL/Component/AppBar/appBar.dart';
-import 'package:CYL/Component/Card/Card.dart';
-import 'package:CYL/Component/Footer/Footer.dart';
+import 'package:cyl/App/Variables/size.dart';
+import 'package:cyl/App/Variables/widget_variables.dart';
+import 'package:cyl/Component/app_bar/app_bar.dart';
+import 'package:cyl/Component/Card/card.dart';
+import 'package:cyl/Component/Footer/footer.dart';
 import 'package:flutter/material.dart';
 
-import 'Variables/WidgetVariables.dart';
-
-class SearchPage extends StatefulWidget {
-  static const String routes = '/Search';
-  const SearchPage({Key? key}) : super(key: key);
+class WishlistPage extends StatefulWidget {
+  static const String routes = '/wishlist';
+  const WishlistPage({Key? key}) : super(key: key);
 
   @override
-  State<SearchPage> createState() => _SearchPageState();
+  State<WishlistPage> createState() => _WishlistPageState();
 }
 
-class _SearchPageState extends State<SearchPage> {
+class _WishlistPageState extends State<WishlistPage> {
   ScrollController? scrollController;
-
   @override
   void initState() {
     // TODO: implement initState
@@ -31,21 +28,21 @@ class _SearchPageState extends State<SearchPage> {
       body: SafeArea(
         child: CustomScrollView(
           controller: scrollController!,
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           slivers: [
-            CustomAppBar(),
+            const CustomAppBar(),
             SliverToBoxAdapter(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 mainAxisSize: MainAxisSize.max,
-                children: [
+                children: const [
                   WidgetVariables.horizontalSpacingSmall,
-                  const Icon(
-                    Icons.search,
+                  Icon(
+                    Icons.list,
                     size: SizeVariables.iconSmall1,
                   ),
                   Text(
-                    (ModalRoute.of(context)!.settings.arguments as SearchQuery).keywords,
+                    'WishList',
                     style: WidgetVariables.headerTextStyle,
                   ),
                   WidgetVariables.horizontalSpacingSmall,
@@ -81,9 +78,4 @@ class _SearchPageState extends State<SearchPage> {
       ),
     );
   }
-}
-
-class SearchQuery {
-  final String keywords;
-  SearchQuery({required this.keywords});
 }

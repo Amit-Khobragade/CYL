@@ -1,4 +1,4 @@
-import 'package:CYL/App/Variables/WidgetVariables.dart';
+import 'package:cyl/App/Variables/widget_variables.dart';
 import 'package:flutter/material.dart';
 
 class SaleInfo extends StatelessWidget {
